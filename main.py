@@ -32,13 +32,9 @@ with open('output.csv', 'w') as file:
             filename = str(os.getcwd()) + "/data/" + element
 
             img = cv2.imread(filename)
-            plt.imshow(img)
-            plt.show()
 
             #Resizing it
             resize = tf.image.resize(img, (256,256))
-            plt.imshow(resize.numpy().astype(int))
-            plt.show()
 
             #Getting the prediction
             pred = new_model.predict(np.expand_dims(resize/255, 0))
